@@ -18,7 +18,6 @@ package org.slim3.gen.scala.task;
 import java.io.File;
 import java.io.IOException;
 
-import org.slim3.gen.Constants;
 import org.slim3.gen.desc.ClassDesc;
 import org.slim3.gen.generator.Generator;
 import org.slim3.gen.printer.Printer;
@@ -88,7 +87,7 @@ public abstract class AbstractGenScalaFileTask extends AbstractGenFileTask {
      * @return a scala file.
      */
     protected ScalaFile createTestCaseScalaFile(ClassDesc classDesc) {
-        return new ScalaFile(testDir, classDesc, Constants.TEST_SUFFIX);
+        return new ScalaFile(testDir, classDesc, "Spec");
     }
 
     /**
@@ -106,7 +105,7 @@ public abstract class AbstractGenScalaFileTask extends AbstractGenFileTask {
         String className = scalaFile.getClassName();
         if (file.exists()) {
             log( String.format(
-                "Already exists. Generation Skipped. ({0}.scala:0)",
+                "Already exists. Generation Skipped. ({%s}.scala:0)",
                 className));
             return;
         }
@@ -120,7 +119,7 @@ public abstract class AbstractGenScalaFileTask extends AbstractGenFileTask {
             }
         }
         log( String.format(
-            "Generated. ({0}.scala:0)",
+            "Generated. ({%s}.scala:0)",
             className));
     }
 

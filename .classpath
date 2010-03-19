@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="lib" path="lib/ant-1.7.0.jar"/>
-	<classpathentry kind="lib" path="lib/slim3-gen-EA1-SNAPSHOT.jar" sourcepath="libsrc/slim3-gen-EA1-SNAPSHOT-sources.jar"/>
+	<classpathentry kind="lib" path="lib/slim3-gen-1.0.0.jar" sourcepath="libsrc/slim3-gen-1.0.0-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
 		<accessrules>
 			<accessrule kind="accessible" pattern="com/sun/mirror/**"/>

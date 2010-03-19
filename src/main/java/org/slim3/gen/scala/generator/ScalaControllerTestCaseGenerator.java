@@ -21,13 +21,13 @@ import org.slim3.gen.printer.Printer;
 
 /**
  * Generates a controller test case scala file.
- * 
- * @author yuroyoro 
+ *
+ * @author yuroyoro
  * @since 3.0
- * 
+ *
  */
 public class ScalaControllerTestCaseGenerator implements Generator {
-    
+
     static final String SpecsSpecification = "org.specs.Specification";
     static final String SpecsRunner = "org.specs.runner";
     static final String TesterPackage = "org.slim3.tester.";
@@ -38,7 +38,7 @@ public class ScalaControllerTestCaseGenerator implements Generator {
 
     /**
      * Creates a new {@link ScalaControllerTestCaseGenerator}.
-     * 
+     *
      * @param controllerDesc
      *            the controller description
      */
@@ -55,7 +55,7 @@ public class ScalaControllerTestCaseGenerator implements Generator {
             p.println("package %s", controllerDesc.getPackageName());
             p.println();
         }
-        
+
         p.println("import %s", SpecsSpecification );
         p.println("import %s._", SpecsRunner );
         p.println("import %s%s", TesterPackage, ControllerTester );
@@ -66,7 +66,7 @@ public class ScalaControllerTestCaseGenerator implements Generator {
             SpecsSpecification );
         p.println(" {");
         p.println();
-        p.println("  val tester = new %s( classOf[%s] )", 
+        p.println("  val tester = new %s( classOf[%s] )",
             ControllerTester,
             controllerDesc.getSimpleName() );
         p.println();
@@ -80,7 +80,7 @@ public class ScalaControllerTestCaseGenerator implements Generator {
         p.println("    \"not redirect\" >> {");
         p.println("      tester.isRedirect must beFalse");
         p.println("    }");
-        
+
         if (controllerDesc.isUseView()) {
             p.println("    \"get destination path is %s\" >> {",controllerDesc.getViewName());
             p.println("      tester.getDestinationPath must_==/ \"%s\"", controllerDesc.getViewName() );
@@ -92,9 +92,9 @@ public class ScalaControllerTestCaseGenerator implements Generator {
         }
         p.println();
         p.println("    doAfter{ tester.tearDown}");
-        p.println("    }");
+        p.println("  }");
         p.println("}");
-        
+
         p.println("class %sSpecTest extends JUnit4( %sSpec )", controllerDesc.getSimpleName() , controllerDesc.getSimpleName());
     }
 }
